@@ -66,7 +66,19 @@
       text-align: center;
       letter-spacing: 2px;
     }
-
+    img{
+      height: auto;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      aspect-ratio: ;
+    }
+    pre{
+      width: 100%;
+      white-space: pre-wrap; /* This is the key property */
+  word-wrap: break-word; /* For older browsers and better cross-browser compatibility */
+  padding: 15px;
+    }
     /* 分类按钮栏 */
     .category-bar {
       text-align: center;
@@ -232,7 +244,7 @@
       {
         title: "电影《盗梦空间》观后感",
         excerpt: "诺兰导演的科幻力作，层层梦境引人深思。",
-        detail: "这部电影通过复杂的梦境结构探讨现实与梦境的边界，剧情紧凑，视觉效果震撼，是近年来不可错过的经典之作。",
+        detail: " 这部电影通过复杂的梦境结构探讨现实与梦境的边界，剧情紧凑，视觉效果震撼，是近年来不可错过的经典之作。",
         date: "2025-05-25",
         category: "电影",
         link: "https://example.com/inception"
@@ -297,19 +309,14 @@ if (item.title.includes("最佳专辑TOP5") && item.date === "2025-04-20") {
     <div style="margin-top:1rem;">
       <div>MAYHEM - Lady Gaga</div>
       <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/tr/album/mayhem/1792666546"></iframe>
-      <div>111</div>
       <div>Absolution - Muse</div>
       <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/tr/album/absolution/1716096819"></iframe>
-      <div>222</div>
       <div>Something Beautiful - Miley Cyrus</div>
       <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/tr/album/something-beautiful/1804974240"></iframe>
-      <div>333</div>
       <div>EUSEXUA - FKA twigs</div>
       <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/tr/album/eusexua/1767658574"></iframe>
-      <div>444</div>
       <div>Hurry Up Tomorrow - The Weeknd</div>
       <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/tr/album/hurry-up-tomorrow/1793654348"></iframe>
-      <div>555</div>
       </div>
   `;
 }
@@ -324,65 +331,56 @@ if (item.title.includes("电影《盗梦空间》观后感") && item.date === "2
       </iframe>
     </div>
     <br></br>
-    <div>近期重温了诺兰导演的经典科幻电影《盗梦空间》（Inception），这部影片不仅在视觉效果上震撼人心，更在剧情设计和哲学思考上给我留下了深刻的印象。</div><br></br>
-    <div>首先，影片的故事构架极为巧妙。梦境层层叠加，现实与虚幻的界限变得模糊，带领观众进入一个极具张力的心理迷宫。导演通过“植入梦境”的设定，探讨了潜意识的力量和记忆的真实性，让人不禁思考我们自身对现实的认知到底有多可靠。</div><br></br>
-    <div>其次，影片中的人物塑造也十分出色。主角多姆·柯布（Dom Cobb）深陷于对妻子逝去的内疚和对现实的迷茫中，他的心理挣扎让整部电影充满了人性化的温度。每一位角色都有鲜明的性格和独特的故事背景，他们的互动推动剧情发展，同时让主题更加丰富。</div><br></br>
-    <div>视觉效果方面，《盗梦空间》堪称一场视觉盛宴。无论是城市折叠、重力逆转的走廊战斗，还是梦境中奇幻的空间设计，都极大地提升了影片的观赏性和代入感。配合汉斯·季默的配乐，更加烘托出紧张悬疑的氛围。</div><br></br>
-    <div>最后，电影留下了一个开放式的结局——旋转的陀螺究竟会不会停？这不仅引发了无数观众的讨论，也体现了导演对现实与梦境模糊边界的深刻探讨。或许，这也正是《盗梦空间》最耐人寻味之处：现实和梦境，本就没有绝对的界限。</div><br></br>
-    <div>总的来说，《盗梦空间》是一部集视觉、剧情、哲学于一体的佳作，值得反复观看和思考。它让我意识到，梦想和现实之间的界线，有时比我们想象的更加复杂，也更加美丽。</div><br></br>
+    <pre>
+      近期重温了诺兰导演的经典科幻电影《盗梦空间》（Inception），这部影片不仅在视觉效果上震撼人心，更在剧情设计和哲学思考上给我留下了深刻的印象。
+      首先，影片的故事构架极为巧妙。梦境层层叠加，现实与虚幻的界限变得模糊，带领观众进入一个极具张力的心理迷宫。导演通过“植入梦境”的设定，探讨了潜意识的力量和记忆的真实性，让人不禁思考我们自身对现实的认知到底有多可靠。
+      其次，影片中的人物塑造也十分出色。主角多姆·柯布（Dom Cobb）深陷于对妻子逝去的内疚和对现实的迷茫中，他的心理挣扎让整部电影充满了人性化的温度。每一位角色都有鲜明的性格和独特的故事背景，他们的互动推动剧情发展，同时让主题更加丰富。
+      视觉效果方面，《盗梦空间》堪称一场视觉盛宴。无论是城市折叠、重力逆转的走廊战斗，还是梦境中奇幻的空间设计，都极大地提升了影片的观赏性和代入感。配合汉斯·季默的配乐，更加烘托出紧张悬疑的氛围。
+      最后，电影留下了一个开放式的结局——旋转的陀螺究竟会不会停？这不仅引发了无数观众的讨论，也体现了导演对现实与梦境模糊边界的深刻探讨。或许，这也正是《盗梦空间》最耐人寻味之处：现实和梦境，本就没有绝对的界限。
+      总的来说，《盗梦空间》是一部集视觉、剧情、哲学于一体的佳作，值得反复观看和思考。它让我意识到，梦想和现实之间的界线，有时比我们想象的更加复杂，也更加美丽。</pre>
     
   `;
 }
 if (item.title.includes("2025年即将发售的游戏展望") && item.date === "2025-05-05") {
   detailContent += `
-  <div><br></br>
-      重点期待作品一览<br></br>
+  <pre>
+重点期待作品一览
+
+<img src='img/DOOM.gif'>
 《毁灭战士：黑暗时代》（Doom: The Dark Ages）
 发行时间：2025年5月15日
-<br></br>
 类型：Doom系列中世纪背景前传
-<br></br>
 平台：PS5 / Xbox / PC（首发加入Game Pass）
-<br></br>
 看点：全新史诗级战斗系统、中世纪世界观探索
-<br></br>
+
+<img src='img/Ghost of Yōtei.avif'>
 《羊蹄山之魂》（Ghost of Yōtei）
 发行时间：2025年10月2日（PS5独占）
-<br></br>
 延续：《对马岛之魂》的世界观，主角变更为 Atsu，时空背景设定在1603年日本
-<br></br>
 特点：扩展探索与战斗系统，将再塑武士类开放世界代表作
-<br></br>
+
+<img src='img/Monster Hunter Wilds.webp'>
 《怪物猎人：荒野》（Monster Hunter Wilds）
 平台：PS5 / Xbox / PC
-<br></br>
 发售时间：2025年2月28日
-<br></br>
 特点：传承系列狩猎精髓，配合全新野外生态和大型怪物战斗
-<br></br>
 
-《怪物猎人：荒野》：如上
+<img src='img/Grand Theft Auto 6.jpg'>
 《GTA VI》（Grand Theft Auto 6）
 尽管原定2025发售，Rockstar尚未最终敲定发售日期，有望登陆PS5/Xbox Series X/S/PC
-<br></br>
 预期：双主角、多城市设定、AI革新，可能引领下一代开放世界游戏
-<br></br>
-《元气战车之父》（Metroid Prime 4: Beyond）
+
+<img src='img/Metroid Prime 4 Beyond.avif'>
+《密特罗德究极4 穿越未知》（Metroid Prime 4: Beyond）
 平台：Switch
-<br></br>
 重返经典第一人称冒险，画面和关卡设计重要升级。
-<br></br>
-其他热门续作 & 新作：<br></br>
+
+
+其他热门续作 & 新作：
 《Death Stranding 2: On The Beach》（PS5，夏季发售）
-<br></br>
-
 《Elden Ring: Nightreign》（FromSoftware的合作主打）
-<br></br>
-
 《Borderlands 4》、《Slay the Spire 2》、《Persona 4 Revival》、《Silent Hill f》等也在阵容中。
-
-
-    </div>
+    </pre>
     
   `;
 }
