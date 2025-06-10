@@ -137,13 +137,15 @@
       user-select: text;
     }
     .recommend-detail {
-      margin-top: 1rem;
-      color: #333;
-      font-size: 1.2rem;
-      line-height: 1.6;
-      user-select: text;
-      display: none;
-    }
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  color: #333;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  user-select: text;
+}
     footer {
       text-align: center;
       padding: 1rem 0;
@@ -154,14 +156,15 @@
     }
     /* 展开时 */
     .recommend-card.expanded .recommend-detail {
-      display: block;
-    }
+  max-height: 10000px; /* 一个足够大的值，确保内容完全展开 */
+  opacity: 1;
+}
     .recommend-title {
   font-size: 1.3rem;
   font-weight: 700;
   color: #3b5ca8;
   flex-grow: 1;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 /* 卡片展开时标题样式变化 */
@@ -213,7 +216,7 @@
       {
         title: "2025个人上半年最佳专辑TOP5",
         excerpt: "本年度最受欢迎的音乐专辑排行榜。",
-        detail: "包含个人2025年最喜欢的十张专辑",
+        detail: "包含个人2025年上半年最喜欢的五张专辑",
         date: "2025-04-20",
         category: "音乐",
         link: "https://example.com/best-albums"
@@ -243,9 +246,9 @@
         link: "https://example.com/summer-fashion"
       },
       {
-        title: "热门手游《原神》简评",
-        excerpt: "开放世界与精美画面相结合的游戏体验。",
-        detail: "《原神》凭借丰富的剧情、多样的角色和自由探索的地图，吸引了大量玩家。定期更新活动和角色，游戏性持续提升。",
+        title: "2025年即将发售的游戏展望",
+        excerpt: "2025年被誉为“新世纪2004”，将迎来一波3A大作狂潮 — 海外大作和本土精品并举，涵盖多个平台和类型",
+        detail: "Doom、GTA VI、Ghost of Yōtei、Monster Hunter、Metroid Prime 4 都蓄势待发。Switch 2、PS5掌机、Xbox手持均有动作，硬件战线铺展。主机御三家皆有布局，PC同样丰富。独立游戏与3A大作相比，这类充满实验精神的作品依旧值得关注。",
         date: "2025-05-05",
         category: "游戏",
         link: "https://example.com/genshin"
@@ -292,12 +295,21 @@
 if (item.title.includes("最佳专辑TOP5") && item.date === "2025-04-20") {
   detailContent += `
     <div style="margin-top:1rem;">
+      <div>MAYHEM - Lady Gaga</div>
       <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/tr/album/mayhem/1792666546"></iframe>
+      <div>111</div>
+      <div>Absolution - Muse</div>
       <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/tr/album/absolution/1716096819"></iframe>
+      <div>222</div>
+      <div>Something Beautiful - Miley Cyrus</div>
       <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/tr/album/something-beautiful/1804974240"></iframe>
+      <div>333</div>
+      <div>EUSEXUA - FKA twigs</div>
       <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/tr/album/eusexua/1767658574"></iframe>
+      <div>444</div>
+      <div>Hurry Up Tomorrow - The Weeknd</div>
       <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/tr/album/hurry-up-tomorrow/1793654348"></iframe>
-
+      <div>555</div>
       </div>
   `;
 }
@@ -321,7 +333,59 @@ if (item.title.includes("电影《盗梦空间》观后感") && item.date === "2
     
   `;
 }
+if (item.title.includes("2025年即将发售的游戏展望") && item.date === "2025-05-05") {
+  detailContent += `
+  <div><br></br>
+      重点期待作品一览<br></br>
+《毁灭战士：黑暗时代》（Doom: The Dark Ages）
+发行时间：2025年5月15日
+<br></br>
+类型：Doom系列中世纪背景前传
+<br></br>
+平台：PS5 / Xbox / PC（首发加入Game Pass）
+<br></br>
+看点：全新史诗级战斗系统、中世纪世界观探索
+<br></br>
+《羊蹄山之魂》（Ghost of Yōtei）
+发行时间：2025年10月2日（PS5独占）
+<br></br>
+延续：《对马岛之魂》的世界观，主角变更为 Atsu，时空背景设定在1603年日本
+<br></br>
+特点：扩展探索与战斗系统，将再塑武士类开放世界代表作
+<br></br>
+《怪物猎人：荒野》（Monster Hunter Wilds）
+平台：PS5 / Xbox / PC
+<br></br>
+发售时间：2025年2月28日
+<br></br>
+特点：传承系列狩猎精髓，配合全新野外生态和大型怪物战斗
+<br></br>
 
+《怪物猎人：荒野》：如上
+《GTA VI》（Grand Theft Auto 6）
+尽管原定2025发售，Rockstar尚未最终敲定发售日期，有望登陆PS5/Xbox Series X/S/PC
+<br></br>
+预期：双主角、多城市设定、AI革新，可能引领下一代开放世界游戏
+<br></br>
+《元气战车之父》（Metroid Prime 4: Beyond）
+平台：Switch
+<br></br>
+重返经典第一人称冒险，画面和关卡设计重要升级。
+<br></br>
+其他热门续作 & 新作：<br></br>
+《Death Stranding 2: On The Beach》（PS5，夏季发售）
+<br></br>
+
+《Elden Ring: Nightreign》（FromSoftware的合作主打）
+<br></br>
+
+《Borderlands 4》、《Slay the Spire 2》、《Persona 4 Revival》、《Silent Hill f》等也在阵容中。
+
+
+    </div>
+    
+  `;
+}
 
 card.innerHTML = `
   <div class="recommend-header">
