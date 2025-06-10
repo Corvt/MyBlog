@@ -186,24 +186,24 @@
   <script>
     // 模拟博客数据
     const blogs = [
-      { title: "如何快速提升前端开发技能", excerpt: "掌握这些技巧，助你在前端路上飞速成长，从入门到精通不再是难题。", date: "2025-06-01", link: "blog.html#post1" },
-      { title: "我的学习笔记：JavaScript 深入理解", excerpt: "通过实例剖析 JavaScript 核心机制，提升代码质量和开发效率。", date: "2025-05-20", link: "blog.html#post2" },
-      { title: "旅行日志：那些难忘的瞬间", excerpt: "旅行不仅是看风景，更是心灵的治愈，和我一起回味美好时光。", date: "2025-05-10", link: "blog.html#post3" },
-      { title: "CSS 动画实战技巧", excerpt: "带你深入理解 CSS 动画原理，做出酷炫网页特效。", date: "2025-04-25", link: "blog.html#post4" },
-      { title: "响应式设计最佳实践", excerpt: "如何用媒体查询和弹性布局让页面自适应各种设备。", date: "2025-04-10", link: "blog.html#post5" },
-      { title: "前端性能优化的那些事儿", excerpt: "提升页面加载速度，优化用户体验的实用方法汇总。", date: "2025-03-28", link: "blog.html#post6" },
-      { title: "HTML5 新特性全解析", excerpt: "了解最新的 HTML5 标准和实用功能。", date: "2025-03-10", link: "blog.html#post7" }
+      { title: "如何写出更优雅的JavaScript", excerpt: "掌握这5个技巧，让你的代码更清晰。", date: "2025-06-01", link: "blog.html#post1" },
+      { title: "深度解析CSS Flex布局", excerpt: "理解flex-grow、flex-shrink和flex-basis的秘密", date: "2025-05-20", link: "blog.html#post2" },
+      { title: "用React做一个Todo应用", excerpt: "一步步教你用React打造实用的Todo列表", date: "2025-05-10", link: "blog.html#post3" },
+      { title: "Vue3新特性全面介绍", excerpt: "让你快速上手Vue3的新功能", date: "2025-04-25", link: "blog.html#post4" },
+      { title: "写给初学者的Git入门指南", excerpt: "从零开始学会版本控制的基础", date: "2025-04-10", link: "blog.html#post5" },
+      { title: "JavaScript异步编程详解", excerpt: "全面掌握JavaScript异步处理技巧", date: "2025-03-28", link: "blog.html#post6" },
+      { title: "前端性能优化策略", excerpt: "减少渲染阻塞，加速页面加载", date: "2025-03-10", link: "blog.html#post7" }
     ];
 
     // 模拟推荐数据
     const recommends = [
-      { title: "Vue.js 入门教程", excerpt: "从零开始学 Vue，快速掌握核心用法和组件开发。", date: "2025-06-02", link: "recommend.html#rec1" },
-      { title: "2025 年度最佳前端书籍", excerpt: "推荐几本适合进阶的经典前端书籍。", date: "2025-05-15", link: "recommend.html#rec2" },
-      { title: "实用 Chrome 插件合集", excerpt: "提升工作效率的浏览器插件推荐。", date: "2025-05-01", link: "recommend.html#rec3" },
-      { title: "开源项目推荐", excerpt: "一些适合参与和学习的热门开源项目。", date: "2025-04-28", link: "recommend.html#rec4" },
-      { title: "JavaScript 性能优化技巧", excerpt: "提升页面性能和加载速度的实用方法。", date: "2025-04-12", link: "recommend.html#rec5" },
-      { title: "前端自动化测试入门", excerpt: "提高代码质量的测试工具和策略介绍。", date: "2025-03-30", link: "recommend.html#rec6" },
-      { title: "设计模式在前端的应用", excerpt: "借助设计模式提升代码复用和可维护性。", date: "2025-03-15", link: "recommend.html#rec7" }
+      { title: "电影《盗梦空间》观后感", excerpt: "诺兰导演的科幻力作，层层梦境引人深思。", date: "2025-05-25", link: "recommend.html#rec1" },
+      { title: "夏季时尚搭配推荐", excerpt: "轻松打造清新夏日风格，必备单品介绍。", date: "2025-05-15", link: "recommend.html#rec2" },
+      { title: "2025年即将发售的游戏展望", excerpt: "海外大作和本土精品并举，涵盖多个平台和类型", date: "2025-05-05", link: "recommend.html#rec3" },
+      { title: "2025个人上半年最佳专辑TOP5", excerpt: "包含个人2025年上半年最喜欢的五张专辑", date: "2025-04-20", link: "recommend.html#rec4" },
+      { title: "2024个人年度最佳专辑TOP10", excerpt: "包含个人2024年年度最喜欢的十张专辑", date: "2025-04-20", link: "recommend.html#rec5" },
+      { title: "经典科幻电影推荐", excerpt: "值得一看的科幻电影佳作集锦", date: "2025-04-20", link: "recommend.html#rec6" },
+      { title: "设计模式在前端的应用", excerpt: "借助设计模式提升代码复用和可维护性。", date: "2025-04-10", link: "recommend.html#rec7" }
     ];
 
     function renderCards(containerId, items, maxCount = 6) {
