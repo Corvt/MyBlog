@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>卢尚贤 的个人推荐</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #fff;
+      color: #333;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+    nav {
+      background: #e7f0fc;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(81,101,137,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      color: #3b5ca8;
+      user-select: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li a {
+      font-weight: 600;
+      color: #3b5ca8;
+      text-decoration: none;
+    }
+    nav ul li a:hover,
+    nav ul li a[a] {
+      color: #ea99b7;
+      font-weight: 700;
+    }
+    main {
+      flex-grow: 1;
+      width: 85vw;
+      max-width: 1000px;
+      margin: 2.5rem auto 4rem auto;
+      background: #f9fbff;
+      padding: 2.5rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(108,160,220,0.2);
+      user-select: text;
+    }
+    main h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      color: #2f4f8a;
+      text-align: center;
+      letter-spacing: 2px;
+    }
+
+    /* 分类按钮栏 */
+    .category-bar {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .category-bar button {
+      background: #f2f8ff;
+      border: 2px solid #3b5ca8;
+      color: #3b5ca8;
+      font-weight: 600;
+      padding: 0.5rem 1.3rem;
+      margin: 0 0.4rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      user-select: none;
+    }
+    .category-bar button.active,
+    .category-bar button:hover {
+      background: #ea99b7;
+      border-color: #ea99b7;
+      color: #fff;
+    }
+
+    /* 推荐列表 */
+    .recommend-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+    .recommend-card {
+      background: #f2f8ff;
+      padding: 1.2rem 1.6rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 14px rgba(108,160,220,0.3);
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+      user-select: none;
+      overflow: hidden;
+    }
+    .recommend-card:hover {
+      box-shadow: 0 12px 28px rgba(234,153,183,0.35);
+    }
+    .recommend-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: text;
+    }
+    .recommend-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #3b5ca8;
+      flex-grow: 1;
+    }
+    .recommend-date {
+      font-size: 0.8rem;
+      color: #999;
+      margin-left: 1rem;
+      white-space: nowrap;
+      user-select: text;
+    }
+    .recommend-excerpt {
+      margin-top: 0.6rem;
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.5;
+      user-select: text;
+    }
+    .recommend-detail {
+      margin-top: 1rem;
+      color: #333;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      user-select: text;
+      display: none;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background: #e7f0fc;
+      color: #666;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    /* 展开时 */
+    .recommend-card.expanded .recommend-detail {
+      display: block;
+    }
+    .recommend-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #3b5ca8;
+  flex-grow: 1;
+  transition: all 0.3s ease;
+}
+
+/* 卡片展开时标题样式变化 */
+.recommend-card.expanded .recommend-title {
+  font-size: 1.6rem;
+  
+}
+    @media (max-width: 600px) {
+      main {
+        width: 90vw;
+        padding: 1.8rem 2rem;
+      }
+      main h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">卢尚贤的博客</div>
+    <ul>
+      <li><a href="index.html">主页</a></li>
+      <li><a href="blog.html">博客</a></li>
+      <li><a href="about.html">关于我</a></li>
+      <li><a href="recommend.html" aria-current="page">个人推荐</a></li>
+      <li><a href="admin.html">管理</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>个人推荐</h1>
+    <div class="category-bar" aria-label="推荐分类">
+      <button class="active" data-category="all">全部</button>
+      <button data-category="音乐">音乐</button>
+      <button data-category="电影">电影</button>
+      <button data-category="服装">服装</button>
+      <button data-category="游戏">游戏</button>
+    </div>
+    <div class="recommend-list" id="recommend-list" aria-live="polite"></div>
+  </main>
+
+  <footer>
+    &copy; 2025 卢尚贤. 保留所有权利。
+  </footer>
+
+  <script>
+    const recommends = [
+      {
+        title: "2025个人上半年最佳专辑TOP5",
+        excerpt: "本年度最受欢迎的音乐专辑排行榜。",
+        detail: "包含个人2025年最喜欢的十张专辑",
+        date: "2025-04-20",
+        category: "音乐",
+        link: "https://example.com/best-albums"
+      },
+      {
+        title: "2024个人年度最佳专辑TOP10",
+        excerpt: "本年度最受欢迎的音乐专辑排行榜。",
+        detail: "包含流行、电子、R&B等多种风格的专辑，结合销量和口碑评选而出，适合喜欢多样音乐的听众探索。",
+        date: "2025-04-20",
+        category: "音乐",
+        link: "https://example.com/best-albums"
+      },
+      {
+        title: "电影《盗梦空间》观后感",
+        excerpt: "诺兰导演的科幻力作，层层梦境引人深思。",
+        detail: "这部电影通过复杂的梦境结构探讨现实与梦境的边界，剧情紧凑，视觉效果震撼，是近年来不可错过的经典之作。",
+        date: "2025-05-25",
+        category: "电影",
+        link: "https://example.com/inception"
+      },
+      {
+        title: "夏季时尚搭配推荐",
+        excerpt: "轻松打造清新夏日风格，必备单品介绍。",
+        detail: "推荐几款透气性好的亚麻衬衫、简约的白色T恤以及百搭的牛仔短裤，适合各种日常和户外场合，穿出自信和舒适感。",
+        date: "2025-05-15",
+        category: "服装",
+        link: "https://example.com/summer-fashion"
+      },
+      {
+        title: "热门手游《原神》简评",
+        excerpt: "开放世界与精美画面相结合的游戏体验。",
+        detail: "《原神》凭借丰富的剧情、多样的角色和自由探索的地图，吸引了大量玩家。定期更新活动和角色，游戏性持续提升。",
+        date: "2025-05-05",
+        category: "游戏",
+        link: "https://example.com/genshin"
+      },
+      
+      {
+        title: "经典科幻电影推荐",
+        excerpt: "值得一看的科幻电影佳作集锦。",
+        detail: "包括《银翼杀手》、《星际穿越》、《异形》等，涵盖未来科技与人性探讨，画面和剧情同样精彩。",
+        date: "2025-04-10",
+        category: "电影",
+        link: "https://example.com/sci-fi-movies"
+      }
+    ];
+
+    const listContainer = document.getElementById("recommend-list");
+    const categoryButtons = document.querySelectorAll(".category-bar button");
+
+    function renderList(category = "all") {
+      listContainer.innerHTML = "";
+      let filtered = recommends;
+      if (category !== "all") {
+        filtered = recommends.filter(item => item.category === category);
+      }
+      if (filtered.length === 0) {
+        listContainer.innerHTML = `<p style="text-align:center; color:#777; user-select:none;">暂无该分类推荐内容。</p>`;
+        return;
+      }
+
+      // 按日期倒序排序
+      filtered.sort((a,b) => new Date(b.date) - new Date(a.date));
+
+      filtered.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "recommend-card";
+        card.tabIndex = 0;
+        card.setAttribute("role", "button");
+        card.setAttribute("aria-expanded", "false");
+        card.setAttribute("aria-label", `${item.title}，点击展开详情`);
+
+        let detailContent = item.detail;
+
+// 如果是 Apple Music 推荐，就追加 iframe 播放器
+if (item.title.includes("最佳专辑TOP5") && item.date === "2025-04-20") {
+  detailContent += `
+    <div style="margin-top:1rem;">
+      <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/tr/album/mayhem/1792666546"></iframe>
+      <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/tr/album/absolution/1716096819"></iframe>
+      <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/tr/album/something-beautiful/1804974240"></iframe>
+      <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/tr/album/eusexua/1767658574"></iframe>
+      <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/tr/album/hurry-up-tomorrow/1793654348"></iframe>
+
+      </div>
+  `;
+}
+if (item.title.includes("电影《盗梦空间》观后感") && item.date === "2025-05-25") {
+  detailContent += `
+  <div style="margin-top:1rem;">
+      <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=641898216&bvid=BV1VY4y1L7T7&cid=731790946&p=1&autoplay=0"
+        scrolling="no"
+        frameborder="no"
+        allowfullscreen="true"
+        style="width:100%; height:500px; border-radius:10px;">
+      </iframe>
+    </div>
+    <br></br>
+    <div>近期重温了诺兰导演的经典科幻电影《盗梦空间》（Inception），这部影片不仅在视觉效果上震撼人心，更在剧情设计和哲学思考上给我留下了深刻的印象。</div><br></br>
+    <div>首先，影片的故事构架极为巧妙。梦境层层叠加，现实与虚幻的界限变得模糊，带领观众进入一个极具张力的心理迷宫。导演通过“植入梦境”的设定，探讨了潜意识的力量和记忆的真实性，让人不禁思考我们自身对现实的认知到底有多可靠。</div><br></br>
+    <div>其次，影片中的人物塑造也十分出色。主角多姆·柯布（Dom Cobb）深陷于对妻子逝去的内疚和对现实的迷茫中，他的心理挣扎让整部电影充满了人性化的温度。每一位角色都有鲜明的性格和独特的故事背景，他们的互动推动剧情发展，同时让主题更加丰富。</div><br></br>
+    <div>视觉效果方面，《盗梦空间》堪称一场视觉盛宴。无论是城市折叠、重力逆转的走廊战斗，还是梦境中奇幻的空间设计，都极大地提升了影片的观赏性和代入感。配合汉斯·季默的配乐，更加烘托出紧张悬疑的氛围。</div><br></br>
+    <div>最后，电影留下了一个开放式的结局——旋转的陀螺究竟会不会停？这不仅引发了无数观众的讨论，也体现了导演对现实与梦境模糊边界的深刻探讨。或许，这也正是《盗梦空间》最耐人寻味之处：现实和梦境，本就没有绝对的界限。</div><br></br>
+    <div>总的来说，《盗梦空间》是一部集视觉、剧情、哲学于一体的佳作，值得反复观看和思考。它让我意识到，梦想和现实之间的界线，有时比我们想象的更加复杂，也更加美丽。</div><br></br>
+    
+  `;
+}
+
+
+card.innerHTML = `
+  <div class="recommend-header">
+    <div class="recommend-title">${item.title}</div>
+    <div class="recommend-date">${item.date}</div>
+  </div>
+  <div class="recommend-excerpt">${item.excerpt}</div>
+  <div class="recommend-detail">${detailContent}</div>
+`;
+
+        // 点击或按回车展开/收起详情
+        function toggleExpand() {
+          const expanded = card.classList.toggle("expanded");
+          card.setAttribute("aria-expanded", expanded);
+        }
+
+        card.addEventListener("click", () => {
+          toggleExpand();
+        });
+        card.addEventListener("keydown", e => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            toggleExpand();
+          }
+        });
+
+        listContainer.appendChild(card);
+      });
+    }
+
+    // 分类按钮点击事件
+    categoryButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        categoryButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderList(btn.dataset.category);
+      });
+    });
+    
+
+     
+    // 初始化，默认显示全部
+    renderList("all");
+  </script>
+</body>
+</html>

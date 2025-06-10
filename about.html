@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>关于 卢尚贤</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #ffffff;
+      color: #333;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+    nav {
+      background: #e7f0fc;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(81, 101, 137, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      color: #3b5ca8;
+      user-select: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li a {
+      font-weight: 600;
+      color: #3b5ca8;
+      text-decoration: none;
+    }
+    nav ul li a:hover {
+      color: #ea99b7;
+    }
+    main {
+      flex-grow: 1;
+      width: 85vw;
+      max-width: 900px;
+      margin: 3rem auto 4rem auto;
+      background: #f9fbff;
+      padding: 2.5rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(108,160,220,0.2);
+      user-select: text;
+    }
+    main h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      color: #2f4f8a;
+      text-align: center;
+      letter-spacing: 2px;
+    }
+    main p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 1.4rem;
+      white-space: pre-line;
+    }
+    main section {
+      margin-top: 2rem;
+    }
+    main section h2 {
+      color: #6ca0dc;
+      border-bottom: 2px solid #ea99b7;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background: #e7f0fc;
+      color: #666;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    @media (max-width: 600px) {
+      main {
+        width: 90vw;
+        padding: 1.8rem 2rem;
+      }
+      main h1 {
+        font-size: 2rem;
+      }
+    }
+    .carousel {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  background: #f8f8f8;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 500px; /* 固定容器高度 */
+}
+
+.carousel-inner img {
+  flex: 0 0 100%;
+  object-fit: cover;  /* 保持原比例完整显示 */
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  display: block;       /* 去除底部白边 */
+  cursor: pointer;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0);
+  color: #ea99b7;
+  border: none;
+  font-size: 2rem;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+}
+.carousel-btn:hover {
+
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.carousel-btn:hover {
+  background: rgba(0,0,0,0.6);
+}
+.image-preview-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.image-preview-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  box-shadow: 0 0 20px rgba(255,255,255,0.4);
+  border-radius: 8px;
+}
+
+.close-preview {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">卢尚贤的博客</div>
+    <ul>
+      <li><a href="index.html">主页</a></li>
+      <li><a href="blog.html">博客</a></li>
+      <li><a href="about.html" aria-current="page">关于我</a></li>
+      <li><a href="recommend.html">个人推荐</a></li>
+      <li><a href="admin.html">管理</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="carousel">
+  <div class="carousel-inner" id="carouselInner">
+    <img src="img/1.jpg" alt="关于我1" onclick="previewImage(this.src)">
+    <img src="img/2.jpg" alt="关于我2" onclick="previewImage(this.src)">
+    <img src="img/3.jpg" alt="关于我3" onclick="previewImage(this.src)">
+    <img src="img/4.jpg" alt="关于我4" onclick="previewImage(this.src)">
+    <img src="img/5.jpg" alt="关于我5" onclick="previewImage(this.src)">
+  </div>
+  <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+  <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+</div>
+    <h1>关于 卢尚贤</h1>
+
+    <p>
+      大家好，我是 卢尚贤，一名热爱编程和分享的开发者。
+      我的博客主要记录前端开发心得、生活点滴和个人推荐。
+      这里不仅是我的知识积累库，更希望成为大家学习和交流的乐园。
+    </p>
+    <section>
+      <h2>我的技术栈</h2>
+      <p>
+        • 精通 HTML、CSS、JavaScript  
+        • 熟悉 Vue、React 框架  
+        • 了解后端 Node.js 基础  
+        • 热衷于前端性能优化和用户体验提升
+      </p>
+    </section>
+    <section>
+      <h2>兴趣爱好</h2>
+      <p>
+        除了写代码，我喜欢旅行、摄影和阅读。  
+        生活中追求不断学习和成长，也乐于分享所见所闻。  
+        希望能通过博客与更多志同道合的朋友相识。
+      </p>
+    </section>
+    <section>
+      <h2>联系方式</h2>
+      <p>
+        欢迎通过邮件与我联系：<a href="mailto:卢尚贤@example.com">卢尚贤@example.com</a>  
+        也可以关注我的社交媒体，获取最新动态。
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 卢尚贤. 保留所有权利。
+  </footer>
+  <script>
+  let currentSlide = 0;
+const carouselInner = document.getElementById('carouselInner');
+const totalSlides = carouselInner.children.length;
+let autoSlideInterval = null;
+
+function showSlide(index) {
+  currentSlide = (index + totalSlides) % totalSlides;
+  carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+
+function nextSlide() {
+  showSlide(currentSlide + 1);
+  resetAutoSlide();
+}
+
+function prevSlide() {
+  showSlide(currentSlide - 1);
+  resetAutoSlide();
+}
+
+function startAutoSlide() {
+  autoSlideInterval = setInterval(() => {
+    showSlide(currentSlide + 1);
+  }, 5000);
+}
+
+function resetAutoSlide() {
+  clearInterval(autoSlideInterval);
+  startAutoSlide();
+}
+
+// 初始化自动轮播
+startAutoSlide();
+</script>
+<div class="image-preview-overlay" id="previewOverlay">
+  <span class="close-preview" onclick="closePreview()">×</span>
+  <img id="previewImage" src="" alt="放大预览" />
+</div>  
+</body>
+</html>

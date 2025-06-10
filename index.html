@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>卢尚贤的个人博客</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f9fbfd; /* 浅白色背景 */
+      color: #333;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+    a {
+      color: #6ca0dc; /* 淡蓝色链接 */
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    a:hover {
+      color: #ea99b7; /* 粉色点缀悬停 */
+    }
+    nav {
+      height: 64px;
+      background: #e7f0fc; /* 淡蓝色不透明背景 */
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(81, 101, 137, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      user-select: none;
+      color: #3b5ca8; /* 深蓝色 */
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li a {
+      font-weight: 600;
+      color: #3b5ca8;
+    }
+    nav ul li a:hover {
+      color: #ea99b7; /* 粉色点缀 */
+    }
+    main {
+      flex-grow: 1;
+      width: 85vw;
+      max-width: 1200px; 
+      margin: 2rem auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.3rem;
+      letter-spacing: 2px;
+      text-align: center;
+      color: #2f4f8a;
+    }
+    header p {
+      font-size: 1.1rem;
+      text-align: center;
+      color: #7a8ca3;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+    h2.section-title {
+      color: #6ca0dc; /* 淡蓝色 */
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #ea99b7; /* 粉色底线点缀 */
+      padding-bottom: 0.3rem;
+      user-select: none;
+    }
+    .posts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 固定三列 */
+      gap: 1.6rem;
+      margin-bottom: 3rem;
+    }
+    .post-card {
+      background: #f2f8ff; /* 极淡蓝色卡片背景 */
+      padding: 1.5rem 1.8rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(108,160,220,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .post-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(234,153,183,0.35); /* 粉色阴影 */
+    }
+    .post-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: #3b5ca8; /* 深蓝 */
+      user-select: text;
+    }
+    .post-card p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.4;
+      height: 60px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      user-select: text;
+    }
+    .post-card .date {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: #999;
+      text-align: right;
+      user-select: text;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background: #e7f0fc;
+      color: #666;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      nav ul {
+        gap: 1rem;
+      }
+      .post-card p {
+        height: auto;
+      }
+      .posts {
+        grid-template-columns: 1fr; /* 移动端单列 */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">卢尚贤的博客</div>
+    <ul>
+      <li><a href="index.html">主页</a></li>
+      <li><a href="blog.html">博客</a></li>
+      <li><a href="about.html">关于我</a></li>
+      <li><a href="recommend.html">个人推荐</a></li>
+      <li><a href="admin.html">管理</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <header>
+      <h1>欢迎来到 卢尚贤 的个人博客</h1>
+      <p>记录成长，分享所想，探索未知</p>
+    </header>
+
+    <section>
+      <h2 class="section-title">最新博客</h2>
+      <div class="posts" id="latest-blogs"></div>
+    </section>
+
+    <section>
+      <h2 class="section-title">最新推荐</h2>
+      <div class="posts" id="latest-recommend"></div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 卢尚贤. 保留所有权利。
+  </footer>
+
+  <script>
+    // 模拟博客数据
+    const blogs = [
+      { title: "如何快速提升前端开发技能", excerpt: "掌握这些技巧，助你在前端路上飞速成长，从入门到精通不再是难题。", date: "2025-06-01", link: "blog.html#post1" },
+      { title: "我的学习笔记：JavaScript 深入理解", excerpt: "通过实例剖析 JavaScript 核心机制，提升代码质量和开发效率。", date: "2025-05-20", link: "blog.html#post2" },
+      { title: "旅行日志：那些难忘的瞬间", excerpt: "旅行不仅是看风景，更是心灵的治愈，和我一起回味美好时光。", date: "2025-05-10", link: "blog.html#post3" },
+      { title: "CSS 动画实战技巧", excerpt: "带你深入理解 CSS 动画原理，做出酷炫网页特效。", date: "2025-04-25", link: "blog.html#post4" },
+      { title: "响应式设计最佳实践", excerpt: "如何用媒体查询和弹性布局让页面自适应各种设备。", date: "2025-04-10", link: "blog.html#post5" },
+      { title: "前端性能优化的那些事儿", excerpt: "提升页面加载速度，优化用户体验的实用方法汇总。", date: "2025-03-28", link: "blog.html#post6" },
+      { title: "HTML5 新特性全解析", excerpt: "了解最新的 HTML5 标准和实用功能。", date: "2025-03-10", link: "blog.html#post7" }
+    ];
+
+    // 模拟推荐数据
+    const recommends = [
+      { title: "Vue.js 入门教程", excerpt: "从零开始学 Vue，快速掌握核心用法和组件开发。", date: "2025-06-02", link: "recommend.html#rec1" },
+      { title: "2025 年度最佳前端书籍", excerpt: "推荐几本适合进阶的经典前端书籍。", date: "2025-05-15", link: "recommend.html#rec2" },
+      { title: "实用 Chrome 插件合集", excerpt: "提升工作效率的浏览器插件推荐。", date: "2025-05-01", link: "recommend.html#rec3" },
+      { title: "开源项目推荐", excerpt: "一些适合参与和学习的热门开源项目。", date: "2025-04-28", link: "recommend.html#rec4" },
+      { title: "JavaScript 性能优化技巧", excerpt: "提升页面性能和加载速度的实用方法。", date: "2025-04-12", link: "recommend.html#rec5" },
+      { title: "前端自动化测试入门", excerpt: "提高代码质量的测试工具和策略介绍。", date: "2025-03-30", link: "recommend.html#rec6" },
+      { title: "设计模式在前端的应用", excerpt: "借助设计模式提升代码复用和可维护性。", date: "2025-03-15", link: "recommend.html#rec7" }
+    ];
+
+    function renderCards(containerId, items, maxCount = 6) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = ""; // 先清空
+      // 按时间倒序排序（最近的在前）
+      items.sort((a, b) => new Date(b.date) - new Date(a.date));
+      const latestItems = items.slice(0, maxCount);
+
+      latestItems.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "post-card";
+        card.onclick = () => {
+          window.location.href = item.link;
+        };
+        card.innerHTML = `
+          <h3>${item.title}</h3>
+          <p>${item.excerpt}</p>
+          <div class="date">${item.date}</div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    renderCards("latest-blogs", blogs, 6);
+    renderCards("latest-recommend", recommends, 6);
+  </script>
+
+</body>
+</html>
