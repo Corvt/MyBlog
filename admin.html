@@ -15,9 +15,12 @@
     <input type="text" id="username" placeholder="用户名">
     <input type="password" id="password" placeholder="密码">
     <button onclick="login()">登录</button>
+    <br></br>
+    <button onclick="index()">主页</button>
     <div class="error" id="errorMsg"></div>
   </div>
-
+  <br></br>
+<li><a href="index.html">主页</a></li>
   <script>
     function login() {
       const username = document.getElementById("username").value.trim();
@@ -31,6 +34,12 @@
         errorMsg.textContent = "用户名或密码错误，请重新输入。";
       }
     }
+
+    function index() {
+      window.location.href = "index.html";
+    }
+
+    
   </script>
 </body>
 </html>
