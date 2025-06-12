@@ -1,142 +1,142 @@
 * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }
-    body {
-      background: #f9fbfd; /* 浅白色背景 */
-      color: #333;
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-    }
-    a {
-      color: #6ca0dc; /* 淡蓝色链接 */
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    a:hover {
-      color: #ea99b7; /* 粉色点缀悬停 */
-    }
-    nav {
-      height: 64px;
-      background: #e7f0fc; /* 淡蓝色不透明背景 */
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 6px rgba(81, 101, 137, 0.3);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav .logo {
-      font-weight: 700;
-      font-size: 1.5rem;
-      letter-spacing: 2px;
-      user-select: none;
-      color: #3b5ca8; /* 深蓝色 */
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-    nav ul li a {
-      font-weight: 600;
-      color: #3b5ca8;
-    }
-    nav ul li a:hover {
-      color: #ea99b7; /* 粉色点缀 */
-    }
-    main {
-      flex-grow: 1;
-      width: 85vw;
-      max-width: 1200px; 
-      margin: 2rem auto;
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    }
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.3rem;
-      letter-spacing: 2px;
-      text-align: center;
-      color: #2f4f8a;
-    }
-    header p {
-      font-size: 1.1rem;
-      text-align: center;
-      color: #7a8ca3;
-      margin-bottom: 2rem;
-      font-style: italic;
-    }
-    h2.section-title {
-      color: #6ca0dc; /* 淡蓝色 */
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #ea99b7; /* 粉色底线点缀 */
-      padding-bottom: 0.3rem;
-      user-select: none;
-    }
-    .posts {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 固定三列 */
-      gap: 1.6rem;
-      margin-bottom: 3rem;
-    }
-    .post-card {
-      background: #f2f8ff; /* 极淡蓝色卡片背景 */
-      padding: 1.5rem 1.8rem;
-      border-radius: 10px;
-      box-shadow: 0 6px 12px rgba(108,160,220,0.2);
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .post-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgba(234,153,183,0.35); /* 粉色阴影 */
-    }
-    .post-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.8rem;
-      color: #3b5ca8; /* 深蓝 */
-      user-select: text;
-    }
-    .post-card p {
-      font-size: 0.9rem;
-      color: #555;
-      line-height: 1.4;
-      height: 60px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      user-select: text;
-    }
-    .post-card .date {
-      margin-top: 1rem;
-      font-size: 0.75rem;
-      color: #999;
-      text-align: right;
-      user-select: text;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem 0;
-      background: #e7f0fc;
-      color: #666;
-      font-size: 0.9rem;
-      user-select: none;
-    }
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      nav ul {
-        gap: 1rem;
-      }
-      .post-card p {
-        height: auto;
-      }
-      .posts {
-        grid-template-columns: 1fr; /* 移动端单列 */
-      }
-    }
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  background: #f9fbfd; /* 浅白色背景 */
+  color: #333;
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+}
+a {
+  color: #6ca0dc; /* 淡蓝色链接 */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+a:hover {
+  color: #ea99b7; /* 粉色点缀悬停 */
+}
+nav {
+  height: 64px;
+  background: #e7f0fc; /* 淡蓝色不透明背景 */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(81, 101, 137, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+nav .logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  user-select: none;
+  color: #3b5ca8; /* 深蓝色 */
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+nav ul li a {
+  font-weight: 600;
+  color: #3b5ca8;
+}
+nav ul li a:hover {
+  color: #ea99b7; /* 粉色点缀 */
+}
+main {
+  flex-grow: 1;
+  width: 85vw;
+  max-width: 1200px; 
+  margin: 2rem auto;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.3rem;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #2f4f8a;
+}
+header p {
+  font-size: 1.1rem;
+  text-align: center;
+  color: #7a8ca3;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+h2.section-title {
+  color: #6ca0dc; /* 淡蓝色 */
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ea99b7; /* 粉色底线点缀 */
+  padding-bottom: 0.3rem;
+  user-select: none;
+}
+.posts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 固定三列 */
+  gap: 1.6rem;
+  margin-bottom: 3rem;
+}
+.post-card {
+  background: #f2f8ff; /* 极淡蓝色卡片背景 */
+  padding: 1.5rem 1.8rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(108,160,220,0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.post-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(234,153,183,0.35); /* 粉色阴影 */
+}
+.post-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: #3b5ca8; /* 深蓝 */
+  user-select: text;
+}
+.post-card p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  user-select: text;
+}
+.post-card .date {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: #999;
+  text-align: right;
+  user-select: text;
+}
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: #e7f0fc;
+  color: #666;
+  font-size: 0.9rem;
+  user-select: none;
+}
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  nav ul {
+    gap: 1rem;
+  }
+  .post-card p {
+    height: auto;
+  }
+  .posts {
+    grid-template-columns: 1fr; /* 移动端单列 */
+  }
+}
