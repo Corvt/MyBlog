@@ -1,0 +1,187 @@
+* {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #fff;
+      color: #333;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+    nav {
+      background: #e7f0fc;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(81,101,137,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      color: #3b5ca8;
+      user-select: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li a {
+      font-weight: 600;
+      color: #3b5ca8;
+      text-decoration: none;
+    }
+    nav ul li a:hover,
+    nav ul li a[a] {
+      color: #ea99b7;
+      font-weight: 700;
+    }
+    main {
+      flex-grow: 1;
+      width: 85vw;
+      max-width: 1000px;
+      margin: 2.5rem auto 4rem auto;
+      background: #f9fbff;
+      padding: 2.5rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(108,160,220,0.2);
+      user-select: text;
+    }
+    main h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      color: #2f4f8a;
+      text-align: center;
+      letter-spacing: 2px;
+    }
+    img{
+      height: auto;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    pre{
+      width: 100%;
+      white-space: pre-wrap; /* This is the key property */
+  word-wrap: break-word; /* For older browsers and better cross-browser compatibility */
+  padding: 15px;
+    }
+    /* 分类按钮栏 */
+    .category-bar {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .category-bar button {
+      background: #f2f8ff;
+      border: 2px solid #3b5ca8;
+      color: #3b5ca8;
+      font-weight: 600;
+      padding: 0.5rem 1.3rem;
+      margin: 0 0.4rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      user-select: none;
+    }
+    .category-bar button.active,
+    .category-bar button:hover {
+      background: #ea99b7;
+      border-color: #ea99b7;
+      color: #fff;
+    }
+
+    /* 推荐列表 */
+    .recommend-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+    .recommend-card {
+      background: #f2f8ff;
+      padding: 1.2rem 1.6rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 14px rgba(108,160,220,0.3);
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+      user-select: none;
+      overflow: hidden;
+    }
+    .recommend-card:hover {
+      box-shadow: 0 12px 28px rgba(234,153,183,0.35);
+    }
+    .recommend-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: text;
+    }
+    .recommend-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #3b5ca8;
+      flex-grow: 1;
+    }
+    .recommend-date {
+      font-size: 0.8rem;
+      color: #999;
+      margin-left: 1rem;
+      white-space: nowrap;
+      user-select: text;
+    }
+    .recommend-excerpt {
+      margin-top: 0.6rem;
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.5;
+      user-select: text;
+    }
+    .recommend-detail {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  color: #333;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  user-select: text;
+}
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background: #e7f0fc;
+      color: #666;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    /* 展开时 */
+    .recommend-card.expanded .recommend-detail {
+  max-height: 10000px; /* 一个足够大的值，确保内容完全展开 */
+  opacity: 1;
+}
+    .recommend-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #3b5ca8;
+  flex-grow: 1;
+  transition: all 0.5s ease;
+}
+
+/* 卡片展开时标题样式变化 */
+.recommend-card.expanded .recommend-title {
+  font-size: 1.6rem;
+  
+}
+    @media (max-width: 600px) {
+      main {
+        width: 90vw;
+        padding: 1.8rem 2rem;
+      }
+      main h1 {
+        font-size: 2rem;
+      }
+    }

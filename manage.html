@@ -1,84 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
   <meta charset="UTF-8" />
   <title>管理后台 - 卢尚贤</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background-color: #f5f7fc;
-      margin: 0;
-      padding: 2rem;
-      color: #333;
-    }
+  <link rel="stylesheet" href="css/manage.css">
+ 
 
-    h1 {
-      text-align: center;
-      color: #3b5ca8;
-      margin-bottom: 2rem;
-    }
-
-    .section {
-      background: #fff;
-      margin-bottom: 2rem;
-      padding: 1.5rem 2rem;
-      border-radius: 10px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-    }
-
-    .section h2 {
-      color: #2d467a;
-      margin-bottom: 1rem;
-    }
-
-    label {
-      display: block;
-      margin: 0.5rem 0 0.2rem;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 0.6rem;
-      margin-bottom: 1rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      padding: 0.5rem 1rem;
-      background-color: #3b5ca8;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 0.5rem;
-    }
-
-    button:hover {
-      background-color: #2d3f72;
-    }
-
-    .item-list {
-      margin-top: 1rem;
-    }
-
-    .item {
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      padding: 0.8rem;
-      margin-bottom: 0.5rem;
-      background: #f1f5ff;
-      position: relative;
-    }
-
-    .item button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #ea4b4b;
-    }
-  </style>
 </head>
 <body>
 
@@ -126,87 +54,8 @@
     <button onclick="saveAbout()">保存内容</button>
   </div>
 
-  <script>
-    // 登录验证
-    if (sessionStorage.getItem("isLoggedIn") !== "true") {
-      alert("未授权访问，请先登录。");
-      window.location.href = "admin.html";
-    }
-
-    // 博客管理逻辑
-    let blogs = [];
-
-    function addBlog() {
-      const title = document.getElementById("blogTitle").value;
-      const excerpt = document.getElementById("blogExcerpt").value;
-      const content = document.getElementById("blogContent").value;
-
-      if (title && excerpt && content) {
-        blogs.push({ title, excerpt, content });
-        renderBlogs();
-        document.getElementById("blogTitle").value = '';
-        document.getElementById("blogExcerpt").value = '';
-        document.getElementById("blogContent").value = '';
-      }
-    }
-
-    function deleteBlog(index) {
-      blogs.splice(index, 1);
-      renderBlogs();
-    }
-
-    function renderBlogs() {
-      const container = document.getElementById("blogList");
-      container.innerHTML = '';
-      blogs.forEach((b, i) => {
-        const div = document.createElement("div");
-        div.className = "item";
-        div.innerHTML = `<strong>${b.title}</strong><br>${b.excerpt}<br><button onclick="deleteBlog(${i})">删除</button>`;
-        container.appendChild(div);
-      });
-    }
-
-    // 推荐管理逻辑
-    let recommends = [];
-
-    function addRecommend() {
-      const category = document.getElementById("recCategory").value;
-      const title = document.getElementById("recTitle").value;
-      const excerpt = document.getElementById("recExcerpt").value;
-      const link = document.getElementById("recLink").value;
-
-      if (title && excerpt && link) {
-        recommends.push({ category, title, excerpt, link });
-        renderRecs();
-        document.getElementById("recTitle").value = '';
-        document.getElementById("recExcerpt").value = '';
-        document.getElementById("recLink").value = '';
-      }
-    }
-
-    function deleteRecommend(index) {
-      recommends.splice(index, 1);
-      renderRecs();
-    }
-
-    function renderRecs() {
-      const container = document.getElementById("recList");
-      container.innerHTML = '';
-      recommends.forEach((r, i) => {
-        const div = document.createElement("div");
-        div.className = "item";
-        div.innerHTML = `<strong>[${r.category}] ${r.title}</strong><br>${r.excerpt}<br><a href="${r.link}" target="_blank">${r.link}</a><br><button onclick="deleteRecommend(${i})">删除</button>`;
-        container.appendChild(div);
-      });
-    }
-
-    // 关于我内容保存
-    function saveAbout() {
-      const aboutContent = document.getElementById("aboutText").value;
-      alert("关于我内容已保存（仅在当前浏览器中模拟保存）");
-      // 实际应用应发送至服务器
-      console.log("关于我内容：", aboutContent);
-    }
+  <script src="js/manage.js">
+    
   </script>
 </body>
 </html>
