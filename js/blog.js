@@ -11,8 +11,9 @@ const blogPosts = [
     {id:10, title:"如何写好可维护代码", content:"结构清晰，易读易改，讲述代码重构和设计原则。", date:"2025-04-15"},
   ];
 
-  const accordion = document.getElementById("accordion");
+const accordion = document.getElementById("accordion");
 
+if (accordion) {
   blogPosts.forEach(post => {
     const item = document.createElement("div");
     item.className = "accordion-item";
@@ -29,15 +30,16 @@ const blogPosts = [
 
   // 折叠面板点击事件
   accordion.querySelectorAll(".accordion-header").forEach(header => {
-  header.addEventListener("click", () => {
-    const currentlyActive = accordion.querySelector(".accordion-header.active");
-    if (currentlyActive && currentlyActive !== header) {
-      currentlyActive.classList.remove("active");
-      currentlyActive.nextElementSibling.classList.remove("open");
-    }
+    header.addEventListener("click", () => {
+      const currentlyActive = accordion.querySelector(".accordion-header.active");
+      if (currentlyActive && currentlyActive !== header) {
+        currentlyActive.classList.remove("active");
+        currentlyActive.nextElementSibling.classList.remove("open");
+      }
 
-    header.classList.toggle("active");
-    const content = header.nextElementSibling;
-    content.classList.toggle("open");
+      header.classList.toggle("active");
+      const content = header.nextElementSibling;
+      content.classList.toggle("open");
+    });
   });
-});
+}

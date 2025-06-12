@@ -90,9 +90,10 @@ const recommends = [
 const listContainer = document.getElementById("recommend-list");
 const categoryButtons = document.querySelectorAll(".category-bar button");
 
-function renderList(category = "all") {
-  listContainer.innerHTML = "";
-  let filtered = recommends;
+if (listContainer && categoryButtons.length > 0) {
+  function renderList(category = "all") {
+    listContainer.innerHTML = "";
+    let filtered = recommends;
   if (category !== "all") {
     filtered = recommends.filter((item) => item.category === category);
   }
@@ -230,15 +231,16 @@ function renderList(category = "all") {
     listContainer.appendChild(card);
   });
 }
-
 // 分类按钮点击事件
-categoryButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    categoryButtons.forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-    renderList(btn.dataset.category);
+  categoryButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      categoryButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderList(btn.dataset.category);
+    });
   });
-});
 
-// 初始化，默认显示全部
+  // 初始化，默认显示全部
+  renderList("all");
+}
 renderList("all");

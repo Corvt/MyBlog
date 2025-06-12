@@ -7,7 +7,9 @@ function login() {
         sessionStorage.setItem("isLoggedIn", "true");
         window.location.href = "manage.html";
       } else {
-        errorMsg.textContent = "用户名或密码错误，请重新输入。";
+        if (errorMsg) {
+          errorMsg.textContent = "用户名或密码错误，请重新输入。";
+        }
       }
     }
 
