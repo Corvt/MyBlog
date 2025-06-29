@@ -78,12 +78,12 @@ const recommends = [
     link: "https://example.com/css-animations"
   },
   {
-    title: "CSS动画入门指南",
-    excerpt: "利用关键帧制作流畅动画效果，让你的页面更加生动。",
-    detail: "介绍CSS动画的基本语法和常用技巧，帮助你轻松实现各种动画效果。",
+    title: "五月游记",
+    excerpt: "五月的旅行记录，探索自然与城市之美。",
+    detail: "五月的旅行记录，涵盖了山川湖泊、城市风光和美食体验，分享了旅途中的点滴感悟和美好瞬间。",
     date: "2025-03-20",
     category: "其他",
-    link: "https://example.com/css-animations"
+    link: "https://example.com/may-travelogue"
   }
 ];
 
